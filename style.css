@@ -323,6 +323,14 @@
     font-size: 30px;
 }
 
+.total-first,
+.total-second,
+.total-third,
+.total-fourth{
+    width: 90vw;
+    padding-left : 5vw;
+    color: gold;
+}
 
 
 
