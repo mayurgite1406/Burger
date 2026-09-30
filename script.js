@@ -70,6 +70,7 @@ minusFirst.addEventListener("click", () => {
     {
         numOne -= Number(costFirst.innerText);
         amountFirst = numOne;
+        localStorage.setItem("amountFirst", amountFirst);
         countOne = countOne - 1;
         countFirst.innerText = countOne;
         localStorage.setItem("countOne", countOne);
@@ -93,6 +94,7 @@ plusFirst.addEventListener("click", () => {
 
     numOne += Number(costFirst.innerText);
     amountFirst = numOne;
+    localStorage.setItem("amountFirst", amountFirst);
     countOne += 1;
     countFirst.innerText = countOne;
     localStorage.setItem("countOne", countOne);
@@ -123,6 +125,7 @@ minusSecond.addEventListener("click", () => {
     {
         numTwo -= Number(costSecond.innerText);
         amountSecond = numTwo;
+        localStorage.setItem("amountSecond", amountSecond);
         countTwo -= 1;
         countSecond.innerText = countTwo;
         localStorage.setItem("countTwo", countTwo);
@@ -146,6 +149,7 @@ plusSecond.addEventListener("click", () => {
 
     numTwo += Number(costSecond.innerText);
     amountSecond = numTwo;
+    localStorage.setItem("amountSecond", amountSecond);
     countTwo += 1;
     countSecond.innerText = countTwo;
     localStorage.setItem("countTwo", countTwo);
@@ -176,6 +180,7 @@ minusThird.addEventListener("click", () => {
     {
         numThree -= Number(costThird.innerText);
         amountThird = numThree;
+        localStorage.setItem("amountThird", amountThird);
         countThree -= 1;
         countThird.innerText = countThree;
         localStorage.setItem("countThree", countThree);
@@ -199,6 +204,7 @@ plusThird.addEventListener("click", () => {
 
     numThree += Number(costThird.innerText);
     amountThird = numThree;
+    localStorage.setItem("amountThird", amountThird);
     countThree += 1;
     countThird.innerText = countThree;
     localStorage.setItem("countThree", countThree);
@@ -229,6 +235,7 @@ minusFourth.addEventListener("click", () => {
     {
         numFour -= Number(costFourth.innerText);
         amountFourth = numFour;
+        localStorage.setItem("amountFourth", amountFourth);
         countFour -= 1;
         countFourth.innerText = countFour;
         localStorage.setItem("countFour", countFour);
@@ -252,6 +259,7 @@ plusFourth.addEventListener("click", () => {
 
     numFour += Number(costFourth.innerText);
     amountFourth = numFour;
+    localStorage.setItem("amountFourth", amountFourth);
     countFour += 1;
     countFourth.innerText = countFour;
     localStorage.setItem("countFour", countFour);
