@@ -1,4 +1,4 @@
-let logIn = document.querySelector(".log-in");
+let cart = document.querySelector(".cart");
 let mode = document.querySelector(".mode");
 let root = document.documentElement;
 
@@ -11,11 +11,6 @@ let plusThird = document.querySelector("#plus-third");
 let minusFourth = document.querySelector("#minus-fourth");
 let plusFourth = document.querySelector("#plus-fourth");
 
-let amountFirst = document.querySelector(".total-first");
-let amountSecond = document.querySelector(".total-second");
-let amountThird = document.querySelector(".total-third");
-let amountFourth = document.querySelector(".total-fourth");
-
 let countFirst = document.querySelector(".number-one");
 let countSecond = document.querySelector(".number-two");
 let countThird = document.querySelector(".number-three");
@@ -26,11 +21,10 @@ let costSecond = document.querySelector(".cost-second");
 let costThird = document.querySelector(".cost-third");
 let costFourth = document.querySelector(".cost-fourth");
 
-
-// For single click 
-logIn.addEventListener("click", () => {
-    window.location.href = "tempo.html";
-});
+let amountFirst = 0;
+let amountSecond = 0;
+let amountThird = 0;
+let amountFourth = 0;
 
 
 
@@ -43,7 +37,7 @@ mode.addEventListener("click", () => {
         mode.style.backgroundColor = "black";
         mode.style.color = "white";
         root.style.setProperty("--bgcolor", "#D6D3D1");
-        root.style.setProperty("--white", "rgb(0, 0, 0");
+        root.style.setProperty("--white", "rgb(0, 0, 0)");
         curr = "light";
     }
     else
@@ -56,6 +50,13 @@ mode.addEventListener("click", () => {
     }
 });
 
+// Cart section now
+
+cart.addEventListener("click", () => {
+    window.location.href = "cart.html";
+});
+
+
 // Now to the pricing section
 
 
@@ -65,15 +66,25 @@ let countOne = 0;
 
 minusFirst.addEventListener("click", () => {
 
-    if (amountFirst != "0")
+    if (countOne > 0)
     {
         numOne -= Number(costFirst.innerText);
-
-        amountFirst.innerText = numOne;
-
-        countOne -= 1;
-
+        amountFirst = numOne;
+        countOne = countOne - 1;
         countFirst.innerText = countOne;
+        localStorage.setItem("countOne", countOne);
+    }
+
+    cart.style.transition = "0.3s ease";
+    if (countOne > 0 || countTwo > 0 || countThree > 0 || countFour > 0)
+    {
+        cart.style.backgroundColor = "#9AE630";
+        cart.style.transform = "scale(1.1)";
+    }
+    else
+    {
+        cart.style.backgroundColor = "#FFDF20";
+        cart.style.transform = "scale(1)";
     }
 
 });
@@ -81,12 +92,22 @@ minusFirst.addEventListener("click", () => {
 plusFirst.addEventListener("click", () => {
 
     numOne += Number(costFirst.innerText);
-
-    amountFirst.innerText = numOne;
-
+    amountFirst = numOne;
     countOne += 1;
-
     countFirst.innerText = countOne;
+    localStorage.setItem("countOne", countOne);
+
+    cart.style.transition = "0.3s ease";
+    if (countOne > 0 || countTwo > 0 || countThree > 0 || countFour > 0)
+    {
+        cart.style.backgroundColor = "#9AE630";
+        cart.style.transform = "scale(1.1)";
+    }
+    else
+    {
+        cart.style.backgroundColor = "#FFDF20";
+        cart.style.transform = "scale(1)";
+    }
 
 });
 
@@ -98,15 +119,25 @@ let countTwo = 0;
 
 minusSecond.addEventListener("click", () => {
 
-    if (amountSecond != "0")
+    if (countTwo > 0)
     {
         numTwo -= Number(costSecond.innerText);
-
-        amountSecond.innerText = numTwo;
-
+        amountSecond = numTwo;
         countTwo -= 1;
-
         countSecond.innerText = countTwo;
+        localStorage.setItem("countTwo", countTwo);
+    }
+
+    cart.style.transition = "0.3s ease";
+    if (countOne > 0 || countTwo > 0 || countThree > 0 || countFour > 0)
+    {
+        cart.style.backgroundColor = "#9AE630";
+        cart.style.transform = "scale(1.1)";
+    }
+    else
+    {
+        cart.style.backgroundColor = "#FFDF20";
+        cart.style.transform = "scale(1)";
     }
 
 });
@@ -114,12 +145,22 @@ minusSecond.addEventListener("click", () => {
 plusSecond.addEventListener("click", () => {
 
     numTwo += Number(costSecond.innerText);
-
-    amountSecond.innerText = numTwo;
-
+    amountSecond = numTwo;
     countTwo += 1;
-
     countSecond.innerText = countTwo;
+    localStorage.setItem("countTwo", countTwo);
+
+    cart.style.transition = "0.3s ease";
+    if (countOne > 0 || countTwo > 0 || countThree > 0 || countFour > 0)
+    {
+        cart.style.backgroundColor = "#9AE630";
+        cart.style.transform = "scale(1.1)";
+    }
+    else
+    {
+        cart.style.backgroundColor = "#FFDF20";
+        cart.style.transform = "scale(1)";
+    }
 
 });
 
@@ -131,15 +172,25 @@ let countThree = 0;
 
 minusThird.addEventListener("click", () => {
 
-    if (amountThird != "0")
+    if (countThree > 0)
     {
         numThree -= Number(costThird.innerText);
-
-        amountThird.innerText = numThree;
-
+        amountThird = numThree;
         countThree -= 1;
-
         countThird.innerText = countThree;
+        localStorage.setItem("countThree", countThree);
+    }
+
+    cart.style.transition = "0.3s ease";
+    if (countOne > 0 || countTwo > 0 || countThree > 0 || countFour > 0)
+    {
+        cart.style.backgroundColor = "#9AE630";
+        cart.style.transform = "scale(1.1)";
+    }
+    else
+    {
+        cart.style.backgroundColor = "#FFDF20";
+        cart.style.transform = "scale(1)";
     }
 
 });
@@ -147,12 +198,22 @@ minusThird.addEventListener("click", () => {
 plusThird.addEventListener("click", () => {
 
     numThree += Number(costThird.innerText);
-
-    amountThird.innerText = numThree;
-
+    amountThird = numThree;
     countThree += 1;
-
     countThird.innerText = countThree;
+    localStorage.setItem("countThree", countThree);
+
+    cart.style.transition = "0.3s ease";
+    if (countOne > 0 || countTwo > 0 || countThree > 0 || countFour > 0)
+    {
+        cart.style.backgroundColor = "#9AE630";
+        cart.style.transform = "scale(1.1)";
+    }
+    else
+    {
+        cart.style.backgroundColor = "#FFDF20";
+        cart.style.transform = "scale(1)";
+    }
 
 });
 
@@ -164,15 +225,25 @@ let countFour = 0;
 
 minusFourth.addEventListener("click", () => {
 
-    if (amountFourth != "0")
+    if (countFour > 0)
     {
         numFour -= Number(costFourth.innerText);
-
-        amountFourth.innerText = numFour;
-
+        amountFourth = numFour;
         countFour -= 1;
-
         countFourth.innerText = countFour;
+        localStorage.setItem("countFour", countFour);
+    }
+
+    cart.style.transition = "0.3s ease";
+    if (countOne > 0 || countTwo > 0 || countThree > 0 || countFour > 0)
+    {
+        cart.style.backgroundColor = "#9AE630";
+        cart.style.transform = "scale(1.1)";
+    }
+    else
+    {
+        cart.style.backgroundColor = "#FFDF20";
+        cart.style.transform = "scale(1)";
     }
 
 });
@@ -180,11 +251,23 @@ minusFourth.addEventListener("click", () => {
 plusFourth.addEventListener("click", () => {
 
     numFour += Number(costFourth.innerText);
-
-    amountFourth.innerText = numFour;
-
+    amountFourth = numFour;
     countFour += 1;
-
     countFourth.innerText = countFour;
+    localStorage.setItem("countFour", countFour);
+    
+    cart.style.transition = "0.3s ease";
+    if (countOne > 0 || countTwo > 0 || countThree > 0 || countFour > 0)
+    {
+        cart.style.backgroundColor = "#9AE630";
+        cart.style.transform = "scale(1.1)";
+    }
+    else
+    {
+        cart.style.backgroundColor = "#FFDF20";
+        cart.style.transform = "scale(1)";
+    }
 
 });
+
+
